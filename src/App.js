@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import { NavigationDrawer } from 'react-md';
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom';
+import Navigation from './Components/Navigation/Navigation'
+import Routes from './Routes'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <NavigationDrawer
-        drawerTitle="react-md with CRA"
-        toolbarTitle="Welcome to react-md"
-      >
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-         </p>
+      <div>
+        <Navigation />
+        <div className="md-grid">
+          <div className="md-cell--10 md-cell--2-offset">
+            <BrowserRouter>
+              <Routes />
+            </BrowserRouter>
+          </div>
         </div>
-      </NavigationDrawer>
+      </div>
     );
   }
 }
