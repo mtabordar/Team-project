@@ -10,7 +10,7 @@ import NotFound from './Components/NotFound/NotFound';
 const Routes = () => (
     <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/products" component={ProductContainer} />
+        <Route exact path="/products/:category?" component={ProductContainer} />
         <Route path="/clients" component={ClientContainer} />
         <Route path="/contacts" component={ContactContainer} />
         <Route component={NotFound} />

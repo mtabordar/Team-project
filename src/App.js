@@ -7,16 +7,16 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div>
-        <Navigation />
-        <div className="md-grid">
-          <div className="md-cell--10 md-cell--2-offset">
-            <BrowserRouter>
+      <BrowserRouter>
+        <div>
+          <Navigation />
+          <div className="md-grid">
+            <div className="md-cell md-cell--10 md-cell--2-offset">
               <Routes />
-            </BrowserRouter>
+            </div>
           </div>
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }

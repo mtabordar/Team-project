@@ -6,10 +6,10 @@ import SideBar from './SideBar/SideBar'
 class Navigation extends Component {
     render() {
         return (
-            <diV>
+            <div>
                 <TopMenu />
                 <SideBar />
-            </diV>
+            </div>
         );
     }
 }
