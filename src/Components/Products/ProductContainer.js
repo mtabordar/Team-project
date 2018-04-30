@@ -12,7 +12,7 @@ class ProductContainer extends Component {
         super(props);
         this.state = {
             products: Data,
-            filterParameter: props.match.params.category
+            filterParameter: ""
         }
     }
 
@@ -32,9 +32,7 @@ class ProductContainer extends Component {
         return (
             <div className="ProductContainer">
                 <QuantityDisplay show={filtered.length} hide={this.state.products.length - filtered.length} />
-                {filtered.map(function (product) {
-                    return <Product key={product.id} {...product} />;
-                })}
+                {filtered.map(product => <Product key={product.id} {...product} />)}
             </div>
         );
     }

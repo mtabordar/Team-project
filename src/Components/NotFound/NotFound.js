@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Button, bem } from 'react-md';
+import { Button } from 'react-md';
 import PropTypes from 'prop-types';
 
-const base = 'not-found';
 
 class NotFound extends Component {
     static propTypes = {
@@ -16,11 +15,10 @@ class NotFound extends Component {
     render() {
         return (
             <div>
-                <h4 className={bem(base, 'display', {}, 'md-display-2')}>Uhhh...</h4>
-                <h4 className={bem(base, 'headline', {}, 'md-headline')}>Looks like the page can not be found.</h4>
+                <h2>Uhhh...</h2>
+                <h3>This Tab does not match the given filters. Please change to another tab and try again.</h3>
                 <Button
                     id="return-home"
-                    className={bem(base, 'return-home')}
                     secondary
                     raised
                     onClick={this.goHome}

@@ -5,7 +5,7 @@ import propTypes from 'prop-types'
 import './Product.css'
 
 const Product = props => (
-    <Card className="Card">
+    <Card className="card">
         <CardTitle title={`${props.name}`} subtitle={`${props.categories.join(', ')} - ${props.brand}`}></CardTitle>
         <div className="md-grid">
             <div className="md-cell md-cell--4 imageContainer">
@@ -17,12 +17,14 @@ const Product = props => (
                 <section>
                     {props.description}
                 </section>
-                <p>
-                    <b>Stock:</b> {props.stock}
-                </p>
-                <p>
-                    <b>Price:</b> {`$${props.price}`}
-                </p>
+                <div className="productInformation">
+                    <div>
+                        <b>Stock:</b> {props.stock}
+                    </div>
+                    <div>
+                        <b>Price:</b> {`$${props.price}`}
+                    </div>
+                </div>
             </Paper>
         </div>
     </Card>
