@@ -27,7 +27,7 @@ class TopMenu extends Component {
         return (
             <div>
                 <Toolbar themed className="md-background--primary">
-                    <TabsContainer className="center" activeTabIndex={this.state.currentTabIndex} onTabChange={this.handleTabChange}>
+                    <TabsContainer className="tab--center" activeTabIndex={this.state.currentTabIndex} onTabChange={this.handleTabChange}>
                         <Tabs tabId="TopMenuTabs" className="md-background--primary" >
                             <Tab label="HOME" id="Home" />
                             <Tab label="PRODUCTS" id="products" />

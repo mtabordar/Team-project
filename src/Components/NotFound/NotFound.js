@@ -16,7 +16,7 @@ class NotFound extends Component {
         return (
             <div>
                 <h2>Uhhh...</h2>
-                <h3>This Tab does not match the given filters. Please change to another tab and try again.</h3>
+                <h3>The page you are looking for does not exists.</h3>
                 <Button
                     id="return-home"
                     secondary

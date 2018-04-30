@@ -15,17 +15,25 @@ class SideBar extends Component {
     render() {
         const [currentLocale, path] = this.props.location.pathname.split('/')
         const locale = currentLocale ? currentLocale : path;
+        const fullpath = this.props.location.pathname;
+        const menu = Menu.map(function (menuItem) {
+            menuItem.active = fullpath === `/${locale}${menuItem.link ? '/' : ''}${menuItem.link}`;
+            return menuItem
+        })
 
         return (
             <div>
-                <Drawer>
-                    <List>
-                        <Subheader primaryText="Categories" />
-                        {Menu.map(menuItem =>
-                            menuItem.divider ? <Divider /> : <SideBarLink key={menuItem.key} locale={locale} {...menuItem} />
-                        )}
-                    </List>
-                </Drawer>
+                {locale === "products" &&
+                    <Drawer>
+                        <List>
+                            <Subheader primaryText="Categories" />
+                            {menu.map(menuItem =>
+                                menuItem.divider ? <Divider key={menuItem.key} />
+                                    : <SideBarLink key={menuItem.key} locale={locale} {...menuItem} />
+                            )}
+                        </List>
+                    </Drawer>
+                }
             </div>
         );
     }

@@ -3,9 +3,11 @@ import propTypes from 'prop-types'
 import { ListItem, Avatar, FontIcon } from 'react-md';
 import { NavLink } from 'react-router-dom'
 
+import './sideBar.css'
+
 const SideBarLink = props => (
-    <NavLink exact to={`/${props.locale}/${props.link}`} >
-        <ListItem
+    <NavLink className="sidebar__listitem--active" exact to={`/${props.locale}/${props.link}`} >
+        <ListItem activeClassName="sidebar__listitem--active" activeBoxClassName="md-list-tile--active"
             leftAvatar={<Avatar icon={<FontIcon>{props.icon}</FontIcon>} />}
             primaryText={props.primaryText}
             active={props.active}

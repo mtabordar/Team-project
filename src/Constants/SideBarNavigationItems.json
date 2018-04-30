@@ -1,17 +1,16 @@
 [
     {
-        "key": "divider",
+        "key": "divider1",
         "divider": true
     },
     {
         "key": "All",
         "primaryText": "All",
         "icon": "list",
-        "active": true,
         "link": ""
     },
     {
-        "key": "divider",
+        "key": "divider2",
         "divider": true
     },
     {
