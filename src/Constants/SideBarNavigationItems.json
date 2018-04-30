@@ -1,0 +1,35 @@
+[
+    {
+        "key": "divider",
+        "divider": true
+    },
+    {
+        "key": "All",
+        "primaryText": "All",
+        "icon": "list",
+        "active": true,
+        "link": ""
+    },
+    {
+        "key": "divider",
+        "divider": true
+    },
+    {
+        "key": "Tech",
+        "primaryText": "Tech",
+        "icon": "laptop",
+        "link": "tech"
+    },
+    {
+        "key": "Services",
+        "primaryText": "Services",
+        "icon": "build",
+        "link": "services"
+    },
+    {
+        "key": "Office",
+        "primaryText": "Office",
+        "icon": "folder",
+        "link": "office"
+    }
+]

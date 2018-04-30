@@ -24,7 +24,8 @@ class ProductContainer extends Component {
         const productApi = ProductsApi("products");
         productApi.get().then(result =>
             this.setState({
-                products: result
+                products: result,
+                filterParameter: this.props.match.params.category
             })
         );
     }
@@ -40,7 +41,6 @@ class ProductContainer extends Component {
 
         return (
             <div className="ProductContainer">
-
                 <QuantityDisplay show={filtered.length} hide={this.state.products.length - filtered.length} />
                 {this.state.products.length > 0 &&
                     filtered.map(product => <Product key={product.id} {...product} />)}
@@ -51,7 +51,7 @@ class ProductContainer extends Component {
 
 function FilterProducts(products, filterParameter) {
     if (filterParameter) {
-        return products.filter(product => product.categories.includes(filterParameter));
+        return products.filter(product => product.categories.map(category => category.toLowerCase()).includes(filterParameter));
     } else {
         return products;
     }

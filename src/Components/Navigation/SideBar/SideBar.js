@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
+import { List, Subheader, Divider, Drawer } from 'react-md';
 
-import { List, ListItem, Subheader, Avatar, FontIcon, Divider, Drawer } from 'react-md';
+import SideBarLink from './SideBarLink'
+import Menu from '../../../Constants/SideBarNavigationItems'
 
 class SideBar extends Component {
     static propTypes = {
@@ -20,33 +21,9 @@ class SideBar extends Component {
                 <Drawer>
                     <List>
                         <Subheader primaryText="Categories" />
-                        <Divider />
-                        <NavLink exact to={`/${locale}`} >
-                            <ListItem
-                                leftAvatar={<Avatar icon={<FontIcon>list</FontIcon>} />}
-                                primaryText="All"
-                                active
-                            />
-                        </NavLink>
-                        <Divider />
-                        <NavLink exact to={`/${locale}/Tech`}>
-                            <ListItem
-                                leftAvatar={<Avatar icon={<FontIcon>laptop</FontIcon>} />}
-                                primaryText="Tech"
-                            />
-                        </NavLink>
-                        <NavLink exact to={`/${locale}/Services`}>
-                            <ListItem
-                                leftAvatar={<Avatar icon={<FontIcon>build</FontIcon>} />}
-                                primaryText="Service"
-                            />
-                        </NavLink>
-                        <NavLink exact to={`/${locale}/Office`}>
-                            <ListItem
-                                leftAvatar={<Avatar icon={<FontIcon>folder</FontIcon>} />}
-                                primaryText="Office"
-                            />
-                        </NavLink>
+                        {Menu.map(menuItem =>
+                            menuItem.divider ? <Divider /> : <SideBarLink key={menuItem.key} locale={locale} {...menuItem} />
+                        )}
                     </List>
                 </Drawer>
             </div>
