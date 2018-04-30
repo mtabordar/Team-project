@@ -4,20 +4,29 @@ import PropTypes from 'prop-types'
 import Product from './Product'
 import QuantityDisplay from '../QuantityDisplay/QuantityDisplay'
 
-import Data from '../../Api/Data'
+import ProductsApi from '../../Api/WebApi'
 import './ProductContainer.css'
 
 class ProductContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            products: Data,
+            products: [],
             filterParameter: ""
         }
     }
 
     static propTypes = {
         match: PropTypes.object.isRequired
+    }
+
+    componentDidMount() {
+        const productApi = ProductsApi("products");
+        productApi.get().then(result =>
+            this.setState({
+                products: result
+            })
+        );
     }
 
     componentWillReceiveProps(nextProps) {
@@ -31,8 +40,10 @@ class ProductContainer extends Component {
 
         return (
             <div className="ProductContainer">
+
                 <QuantityDisplay show={filtered.length} hide={this.state.products.length - filtered.length} />
-                {filtered.map(product => <Product key={product.id} {...product} />)}
+                {this.state.products.length > 0 &&
+                    filtered.map(product => <Product key={product.id} {...product} />)}
             </div>
         );
     }

@@ -1,16 +1,17 @@
-const WebApi = function () {
-  function search(query, cb) {
-    return fetch(`api/food?q=${query}`, {
+const WebApi = function (url) {
+
+  let ApiUrl = `http://localhost:3001/${url}`;
+
+  function get() {
+    return fetch(ApiUrl, {
       accept: "application/json"
     })
-      .then(checkStatus)
-      .then(parseJSON)
-      .then(cb);
+      .then(checkResponse)
   }
 
-  function checkStatus(response) {
+  function checkResponse(response) {
     if (response.status >= 200 && response.status < 300) {
-      return response;
+      return response.json();
     }
     const error = new Error(`HTTP Error ${response.statusText}`);
     error.status = response.statusText;
@@ -19,12 +20,8 @@ const WebApi = function () {
     throw error;
   }
 
-  function parseJSON(response) {
-    return response.json();
-  }
-
   return {
-    search: search
+    get
   }
 }
 

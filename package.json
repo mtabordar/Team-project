@@ -10,6 +10,7 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
+    "json-server": "^0.12.2",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
     "react": "^16.3.2",
@@ -22,8 +23,9 @@
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && npm run build-css -- --watch --recursive",
+    "start-fake-api": "json-server --watch src/Api/Data.json --port 3001",
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
+    "start": "npm-run-all -p watch-css start-js start-fake-api",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
